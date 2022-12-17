@@ -1,0 +1,347 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container my-3">
+
+    <h4>Please answer the question to continue</h4>
+    <br>
+
+    <form action="{{url_for( 'predict')}}">
+        
+        <div>
+            
+            <h6>Select your gender</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+    
+                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="other" value="Other" >
+                <label class="form-check-label" for="other">Others</label>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div >
+            
+            <h6>Do you have smoking habits</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="smoke" id="yes" value="Yes" required>
+                <label class="form-check-label" for="yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="smoke" id="no" value="No">
+                <label class="form-check-label" for="no">No</label>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div >
+            <h6>Vaccination status</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="vaccine" id="2 dose" value="2" required>
+                <label class="form-check-label" for="2 dose">2 dose</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="vaccine" id="1 dose" value="1">
+                <label class="form-check-label" for="1 dose">1 dose</label>
+            </div>
+    
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="vaccine" id="no dose" value="0">
+                <label class="form-check-label" for="no dose">Not done</label>
+            </div>
+            
+        </div>
+
+        <br>
+
+        <div class="row align-items-center my-1">
+
+            <div class="col">
+            
+                <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                <input class="form-control" name ="country" type="text" placeholder="Country*" aria-label="default input example" required>
+            </div>
+    
+            <div class="col">
+            
+                <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                <input class="form-control" name ="state" type="text" placeholder="State/Province*" aria-label="default input example" required>
+            </div>
+    
+            <div class="col">
+            
+                <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                <input class="form-control" name ="district" type="text" placeholder="Locality/District" aria-label="default input example" required>
+            </div>
+                
+        </div>
+
+        <br>
+
+
+        <h6>Do you have any of the symptoms</h6>
+
+        <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='cold' type="checkbox" value="1" id="cold">
+                    <label class="form-check-label" for="cold">
+                      Cold
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='cough' type="checkbox" value="1" id="cough">
+                    <label class="form-check-label" for="cough">
+                      Cough
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='fever' type="checkbox" value="1" id="fever">
+                    <label class="form-check-label" for="fever">
+                      Fever
+                    </label>
+            </div>
+
+           
+
+
+        </div>
+
+        <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='diarrhoea' type="checkbox" value="1" id="diarrhoea">
+                    <label class="form-check-label" for="diarrhoea">
+                      Diarrhoea
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='sore' type="checkbox" value="1" id="sore">
+                    <label class="form-check-label" for="sore">
+                      Sore throat
+                    </label>
+            </div>
+
+            <div class="col form-check">
+             
+            </div>
+
+
+
+
+
+        </div>
+
+        <br>
+
+        <h6>Do you have any of these conditions</h6>
+
+        <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='loss' type="checkbox" value="1" id="loss">
+                    <label class="form-check-label" for="loss">
+                        Loss of Smell or Taste
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='muscle' type="checkbox" value="1" id="muscle">
+                    <label class="form-check-label" for="muscle">
+                        Muscle Pain
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='fatigue' type="checkbox" value="1" id="fatigue">
+                    <label class="form-check-label" for="fatigue">
+                        Fatigue
+                    </label>
+            </div>
+
+           
+
+
+        </div>
+
+        <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='breathing' type="checkbox" value="1" id="breathing">
+                    <label class="form-check-label" for="breathing">
+                        Breathing Difficulties
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                
+            </div>
+            
+            <div class="col form-check">
+                
+            </div>
+
+
+        </div>
+
+        <br>
+
+        <h6>Do you have any of these respiratory ailments</h6>
+
+        <div class="row m-1">
+
+        
+
+            <div class="col form-check">
+                <input class="form-check-input" name='pneumonia' type="checkbox" value="1" id="pneumonia">
+                    <label class="form-check-label" for="pneumonia">
+                        Pneumonia
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='asthma' type="checkbox" value="1" id="asthma">
+                    <label class="form-check-label" for="asthma">
+                        Asthma
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='chronic' type="checkbox" value="1" id="chronic">
+                    <label class="form-check-label" for="chronic">
+                        Chronic Lung Disease
+                    </label>
+            </div>
+
+           
+
+
+        </div>
+
+        <!-- <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='others' type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Others
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        None of the above
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                
+            </div>
+
+
+        </div> -->
+
+        <br>
+
+        <h6>Do you have any of these pre-existing conditions</h6>
+
+        <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='hyper' type="checkbox" value="1" id="hyper">
+                    <label class="form-check-label" for="hyper">
+                        Hypertension
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='heart' type="checkbox" value="1" id="heart">
+                    <label class="form-check-label" for="heart">
+                        Ischemic Heart Disease
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                <input class="form-check-input" name='diabetes' type="checkbox" value="1" id="diabetes">
+                    <label class="form-check-label" for="diabetes">
+                        Diabetes
+                    </label>
+            </div>
+
+           
+
+
+        </div>
+
+        <!-- <div class="row m-1">
+
+            <div class="col form-check">
+                <input class="form-check-input" name='others' type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Others
+                    </label>
+            </div>
+
+            <div class="col form-check">
+                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        None of the above
+                    </label> 
+            </div>
+
+            <div class="col form-check">
+                
+            </div>
+
+
+        </div> -->
+
+        <br>
+
+        <h6>Have you taken a COVID-19 test</h6>
+        <div class="form-check ">
+            <input class="form-check-input" type="radio" name="covid" id="yes" value="yes" required>
+            <label class="form-check-label" for="yes">Yes</label>
+        </div>
+        <div class="form-check">
+
+            <input class="form-check-input" type="radio" name="covid" id="no" value="no">
+            <label class="form-check-label" for="no">No</label>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary my-4">
+
+
+
+
+    </form>
+
+
+    <!-- <br>
+    <button type='button' class="btn btn-primary mb-4">
+        <a class="text-decoration-none text-white" href="{{ url_for('predict') }}">Submit</a>
+
+    </button> -->
+
+    
+</div>
+
+
+{% endblock %}

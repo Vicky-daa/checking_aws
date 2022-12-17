@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+        
+    <div class="=mx-auto">
+        <h3>Please upload the recording</h3>
+        <br>
+
+        {% if disabled %}
+
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+            
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile"><br><br>
+                <input type="submit">
+            </form>
+
+        {% else %}
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+            
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile"><br><br>
+                <button type="submit" disabled>submit</button>
+            </form>
+        {% endif %}
+    </div>
+    
+    <div>
+
+        <p class="lead text-center"> Predcition: {{prediction}}</p>
+        <p class="lead text-center"> {{rec_prec}}</p>
+        
+        
+    </div>
+    
+    <div class="row">
+
+        {% if disabled %}
+
+            <div class="col text-center">
+                <button id="my-button" type="button" class="btn btn-primary " disabled>
+                    <a class="text-white text-decoration-none" href="{{ url_for('info') }}" >Check again</a>
+                </button>
+            </div>
+
+        {% else %}
+
+            <div class="col text-center">
+                <button id="my-button" type="button" class="btn btn-primary ">
+                    <a class="text-white text-decoration-none" href="{{ url_for('info') }}" >Check again</a>
+                </button>
+            </div>
+            
+        {% endif %}
+       
+
+    </div>
+
+
+</div>
+
+<script src="static\voice.js"></script>
+
+
+{% endblock %}

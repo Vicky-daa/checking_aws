@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<!-- <div class="container" style="width: 800px ;" >
+    <h3>Disclaimer</h3>
+    <p>Hi, Thank you for visiting out page. </p>
+    <small>Our project is to identify respiratory disease from the sounds of cough and breathing.
+        The participation in this study is purely voluntary and the details collected will not contain any personally identifiable information.
+        The entire process should take about 5 minutes only. The recorded audio should be clear and perform the recording in a quiet environment. 
+        By clicking Proceed, you agree to our terms and conditions and provide us the consent to your data solely for research and development purposes.</small>
+    
+    <p class="small fw-bold"> For any questions, please contact c0830900@mylambton.ca</p>
+    <br>
+    <button type="button" class="btn btn-primary ">
+        <a class="text-white text-decoration-none" href="{{ url_for('info') }}">Proceed</a>
+    </button>
+</div> -->
+
+<div class= "container" >
+    <h3>Disclaimer</h3>
+
+    <p>Hi, Thank you for visiting out page. </p>
+        <small>Our project is to identify respiratory disease from the sounds of cough and breathing.
+            The participation in this study is purely voluntary and the details collected will not contain any personally identifiable information.
+            The entire process should take about 5 minutes only. The recorded audio should be clear and perform the recording in a quiet environment. 
+            By clicking Proceed, you agree to our terms and conditions and provide us the consent to your data solely for research and development purposes.</small>
+        
+    <p class="small fw-bold"> For any questions, please contact c0830900@mylambton.ca</p>
+    
+    <br>
+    <button type="button" class="btn btn-primary ">
+        <a class="text-white text-decoration-none" href="{{ url_for('info') }}">Proceed</a>
+    </button>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
